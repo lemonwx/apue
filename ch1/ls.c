@@ -1,12 +1,23 @@
 #include <dirent.h>
 #include "apue.h"
+
+
+int foo()
+{
+  for (int i = 0; i < 10; i ++ )
+  {
+
+  }
+}
+
+
 int main(int argc, char *argv[]) 
 {
   DIR *dp;
   struct dirent *dirp;
   if (argc != 2)
       {
-        err_quit("usage: ls dir_name");
+      err_quit("usage: ls dir_name");
       }
   if ((dp = opendir(argv[1])) == NULL) 
   {
@@ -15,5 +26,5 @@ int main(int argc, char *argv[])
   while ((dirp = readdir(dp)) != NULL)
     printf("%s\n", dirp->d_name);
   closedir(dp);
-  sleep(100);
+  exit(0);
 }
